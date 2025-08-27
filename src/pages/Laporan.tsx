@@ -67,7 +67,7 @@ const Laporan = () => {
       
       <div className="container mx-auto p-6 pt-24">
         {/* Header */}
-        <div className="mb-8 fade-in">
+        <div className="mb-8 animate-fade-in">
           <h1 className="text-3xl font-bold text-foreground mb-2">
             Laporan Absensi
           </h1>
@@ -78,7 +78,7 @@ const Laporan = () => {
 
         {/* Statistik Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 mb-8">
-          <Card className="glass-card scale-hover fade-in">
+          <Card className="glass-card transition-all duration-300 hover:scale-105 animate-fade-in">
             <CardContent className="p-6">
               <div className="flex items-center justify-between">
                 <div>
@@ -90,7 +90,7 @@ const Laporan = () => {
             </CardContent>
           </Card>
           
-          <Card className="glass-card scale-hover fade-in" style={{ animationDelay: "0.1s" }}>
+          <Card className="glass-card transition-all duration-300 hover:scale-105 animate-fade-in" style={{ animationDelay: "0.1s" }}>
             <CardContent className="p-6">
               <div className="flex items-center justify-between">
                 <div>
@@ -104,7 +104,7 @@ const Laporan = () => {
             </CardContent>
           </Card>
 
-          <Card className="glass-card scale-hover fade-in" style={{ animationDelay: "0.2s" }}>
+          <Card className="glass-card transition-all duration-300 hover:scale-105 animate-fade-in" style={{ animationDelay: "0.2s" }}>
             <CardContent className="p-6">
               <div className="flex items-center justify-between">
                 <div>
@@ -118,7 +118,7 @@ const Laporan = () => {
             </CardContent>
           </Card>
 
-          <Card className="glass-card scale-hover fade-in" style={{ animationDelay: "0.3s" }}>
+          <Card className="glass-card transition-all duration-300 hover:scale-105 animate-fade-in" style={{ animationDelay: "0.3s" }}>
             <CardContent className="p-6">
               <div className="flex items-center justify-between">
                 <div>
@@ -132,7 +132,7 @@ const Laporan = () => {
             </CardContent>
           </Card>
 
-          <Card className="glass-card scale-hover fade-in" style={{ animationDelay: "0.4s" }}>
+          <Card className="glass-card transition-all duration-300 hover:scale-105 animate-fade-in" style={{ animationDelay: "0.4s" }}>
             <CardContent className="p-6">
               <div className="flex items-center justify-between">
                 <div>
@@ -148,7 +148,7 @@ const Laporan = () => {
         </div>
 
         {/* Filter dan Export */}
-        <Card className="glass-card mb-6 slide-up">
+        <Card className="glass-card mb-6 animate-slide-up">
           <CardHeader>
             <CardTitle className="flex items-center space-x-2">
               <Filter className="w-5 h-5 text-primary" />
@@ -224,7 +224,7 @@ const Laporan = () => {
         </Card>
 
         {/* Tabel Laporan */}
-        <Card className="glass-card slide-up" style={{ animationDelay: "0.2s" }}>
+        <Card className="glass-card animate-slide-up" style={{ animationDelay: "0.2s" }}>
           <CardHeader>
             <CardTitle>Data Absensi</CardTitle>
             <CardDescription>

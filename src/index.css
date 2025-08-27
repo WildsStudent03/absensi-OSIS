@@ -114,19 +114,6 @@
     box-shadow: var(--shadow-toska);
   }
   
-  /* Animated Elements */
-  .slide-up {
-    @apply animate-in slide-in-from-bottom-10 duration-700 ease-out;
-  }
-  
-  .fade-in {
-    @apply animate-in fade-in duration-500 ease-out;
-  }
-  
-  .scale-hover {
-    @apply transition-all duration-300 hover:scale-105;
-  }
-  
   /* Interactive Button States */
   .btn-glow {
     @apply transition-all duration-300 hover:shadow-lg;

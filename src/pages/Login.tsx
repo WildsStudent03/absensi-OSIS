@@ -26,7 +26,7 @@ const Login = () => {
       
       <div className="w-full max-w-md relative z-10">
         {/* Header Section */}
-        <div className="text-center mb-8 slide-up">
+        <div className="text-center mb-8 animate-slide-up">
           <div className="flex justify-center mb-4">
             <div className="p-4 rounded-full bg-primary/20 glow-primary">
               <QrCode className="w-12 h-12 text-primary" />
@@ -41,7 +41,7 @@ const Login = () => {
         </div>
 
         {/* Login Card */}
-        <Card className="glass-card slide-up" style={{ animationDelay: "0.2s" }}>
+        <Card className="glass-card animate-slide-up" style={{ animationDelay: "0.2s" }}>
           <CardHeader className="space-y-1">
             <CardTitle className="text-2xl font-semibold text-center">
               Masuk ke Akun
@@ -87,7 +87,7 @@ const Login = () => {
         </Card>
 
         {/* Features Preview */}
-        <div className="mt-8 grid grid-cols-3 gap-4 fade-in" style={{ animationDelay: "0.4s" }}>
+        <div className="mt-8 grid grid-cols-3 gap-4 animate-fade-in" style={{ animationDelay: "0.4s" }}>
           <div className="text-center">
             <div className="p-3 rounded-lg bg-card/50 backdrop-blur-sm border border-white/10 mb-2">
               <QrCode className="w-6 h-6 text-primary mx-auto" />

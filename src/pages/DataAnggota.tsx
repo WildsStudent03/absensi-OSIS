@@ -111,7 +111,7 @@ const DataAnggota = () => {
       
       <div className="container mx-auto p-6 pt-24">
         {/* Header */}
-        <div className="flex flex-col lg:flex-row lg:items-center justify-between mb-8 fade-in">
+        <div className="flex flex-col lg:flex-row lg:items-center justify-between mb-8 animate-fade-in">
           <div>
             <h1 className="text-3xl font-bold text-foreground mb-2">
               Data Anggota OSIS
@@ -131,7 +131,7 @@ const DataAnggota = () => {
 
         {/* Search & Stats */}
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 mb-8">
-          <Card className="glass-card lg:col-span-2 fade-in">
+          <Card className="glass-card lg:col-span-2 animate-fade-in">
             <CardContent className="p-6">
               <div className="relative">
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-muted-foreground" />
@@ -145,7 +145,7 @@ const DataAnggota = () => {
             </CardContent>
           </Card>
 
-          <Card className="glass-card scale-hover fade-in" style={{ animationDelay: "0.1s" }}>
+          <Card className="glass-card transition-all duration-300 hover:scale-105 animate-fade-in" style={{ animationDelay: "0.1s" }}>
             <CardContent className="p-6">
               <div className="flex items-center justify-between">
                 <div>
@@ -157,7 +157,7 @@ const DataAnggota = () => {
             </CardContent>
           </Card>
 
-          <Card className="glass-card scale-hover fade-in" style={{ animationDelay: "0.2s" }}>
+          <Card className="glass-card transition-all duration-300 hover:scale-105 animate-fade-in" style={{ animationDelay: "0.2s" }}>
             <CardContent className="p-6">
               <div className="flex items-center justify-between">
                 <div>
@@ -180,7 +180,7 @@ const DataAnggota = () => {
             return (
               <Card 
                 key={anggota.id} 
-                className="glass-card scale-hover slide-up"
+                className="glass-card transition-all duration-300 hover:scale-105 animate-slide-up"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <CardHeader className="pb-3">

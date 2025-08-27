@@ -63,7 +63,7 @@ const Absensi = () => {
       
       <div className="container mx-auto p-6 pt-24">
         {/* Header */}
-        <div className="mb-8 fade-in">
+        <div className="mb-8 animate-fade-in">
           <h1 className="text-3xl font-bold text-foreground mb-2">
             Absensi Anggota OSIS
           </h1>
@@ -75,7 +75,7 @@ const Absensi = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Info Card */}
           <div className="lg:col-span-1">
-            <Card className="glass-card mb-6 fade-in">
+            <Card className="glass-card mb-6 animate-fade-in">
               <CardHeader>
                 <CardTitle className="flex items-center space-x-2">
                   <Calendar className="w-5 h-5 text-primary" />
@@ -99,7 +99,7 @@ const Absensi = () => {
             </Card>
 
             {/* QR Code Scanner */}
-            <Card className="glass-card fade-in" style={{ animationDelay: "0.1s" }}>
+            <Card className="glass-card animate-fade-in" style={{ animationDelay: "0.1s" }}>
               <CardHeader>
                 <CardTitle className="flex items-center space-x-2">
                   <QrCode className="w-5 h-5 text-secondary" />
@@ -125,7 +125,7 @@ const Absensi = () => {
 
           {/* Form Absensi */}
           <div className="lg:col-span-2">
-            <Card className="glass-card slide-up">
+            <Card className="glass-card animate-slide-up">
               <CardHeader>
                 <CardTitle className="flex items-center space-x-2">
                   <CheckCircle2 className="w-6 h-6 text-primary" />

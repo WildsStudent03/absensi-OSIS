@@ -60,7 +60,7 @@ const Dashboard = () => {
       
       <div className="container mx-auto p-6 pt-24">
         {/* Header */}
-        <div className="mb-8 fade-in">
+        <div className="mb-8 animate-fade-in">
           <h1 className="text-3xl font-bold text-foreground mb-2">
             Dashboard Absensi OSIS
           </h1>
@@ -74,7 +74,7 @@ const Dashboard = () => {
           {stats.map((stat, index) => (
             <Card 
               key={stat.label} 
-              className="glass-card scale-hover fade-in"
+              className="glass-card transition-all duration-300 hover:scale-105 animate-fade-in"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <CardContent className="p-6">
@@ -97,7 +97,7 @@ const Dashboard = () => {
           {menuItems.map((item, index) => (
             <Card 
               key={item.title}
-              className="glass-card scale-hover cursor-pointer group slide-up"
+              className="glass-card transition-all duration-300 hover:scale-105 cursor-pointer group animate-slide-up"
               style={{ animationDelay: `${0.2 + index * 0.1}s` }}
               onClick={item.onClick}
             >
@@ -128,7 +128,7 @@ const Dashboard = () => {
 
         {/* Quick Actions */}
         <div className="mt-8">
-          <Card className="glass-card fade-in" style={{ animationDelay: "0.6s" }}>
+          <Card className="glass-card animate-fade-in" style={{ animationDelay: "0.6s" }}>
             <CardHeader>
               <CardTitle className="flex items-center space-x-2">
                 <History className="w-5 h-5 text-primary" />

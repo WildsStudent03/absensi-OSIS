@@ -76,7 +76,7 @@ const PendaftaranAnggota = () => {
       
       <div className="container mx-auto p-6 pt-24">
         {/* Header */}
-        <div className="mb-8 fade-in">
+        <div className="mb-8 animate-fade-in">
           <h1 className="text-3xl font-bold text-foreground mb-2">
             Pendaftaran Anggota OSIS
           </h1>
@@ -86,7 +86,7 @@ const PendaftaranAnggota = () => {
         </div>
 
         <div className="max-w-4xl mx-auto">
-          <Card className="glass-card slide-up">
+          <Card className="glass-card animate-slide-up">
             <CardHeader>
               <CardTitle className="flex items-center space-x-2">
                 <UserPlus className="w-6 h-6 text-primary" />
@@ -214,7 +214,7 @@ const PendaftaranAnggota = () => {
 
                 {/* Preview Card */}
                 {formData.namaLengkap && (
-                  <Card className="bg-card/30 border border-white/10 fade-in">
+                  <Card className="bg-card/30 border border-white/10 animate-fade-in">
                     <CardHeader>
                       <CardTitle className="text-lg">Preview Data Anggota</CardTitle>
                     </CardHeader>
