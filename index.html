@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSIS Digital - Sistem Absensi SMK</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: {
+                            900: '#0f172a',
+                            800: '#1e293b',
+                        },
+                        secondary: {
+                            600: '#334155',
+                            500: '#475569',
+                        },
+                        accent: {
+                            500: '#06b6d4',
+                            600: '#0891b2',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-inter bg-primary-900 text-white overflow-x-hidden">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass border-b border-white/10">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-2">
+                    <div class="w-10 h-10 bg-accent-500 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-users text-white text-xl"></i>
+                    </div>
+                    <span class="text-xl font-bold text-white">OSIS Digital</span>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="nav-link text-white hover:text-accent-500 transition-colors">Beranda</a>
+                    <a href="#features" class="nav-link text-gray-300 hover:text-accent-500 transition-colors">Fitur</a>
+                    <a href="#about" class="nav-link text-gray-300 hover:text-accent-500 transition-colors">Tentang</a>
+                    <a href="#contact" class="nav-link text-gray-300 hover:text-accent-500 transition-colors">Kontak</a>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <a href="login.html" class="btn-primary px-6 py-2 rounded-lg font-medium transition-all duration-300">
+                        Masuk
+                    </a>
+                    <button class="md:hidden text-white" id="mobile-menu-btn">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden" id="mobile-menu">
+            <div class="px-6 py-4 space-y-4 bg-primary-800/95 backdrop-blur-md">
+                <a href="#home" class="block text-white hover:text-accent-500 transition-colors">Beranda</a>
+                <a href="#features" class="block text-gray-300 hover:text-accent-500 transition-colors">Fitur</a>
+                <a href="#about" class="block text-gray-300 hover:text-accent-500 transition-colors">Tentang</a>
+                <a href="#contact" class="block text-gray-300 hover:text-accent-500 transition-colors">Kontak</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-primary-900 via-primary-800 to-accent-600/20"></div>
+        <div class="absolute inset-0 bg-[url('https://images.pexels.com/photos/3184287/pexels-photo-3184287.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080')] bg-cover bg-center opacity-5"></div>
+        
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div data-aos="fade-right" data-aos-duration="800">
+                    <h1 class="text-5xl lg:text-7xl font-bold mb-6 leading-tight">
+                        <span class="text-white">Sistem</span>
+                        <span class="text-accent-500 typing-text" id="typing-text"></span>
+                        <span class="text-white">Digital</span>
+                    </h1>
+                    <p class="text-xl text-gray-300 mb-8 leading-relaxed">
+                        Solusi modern untuk manajemen kehadiran OSIS SMK dengan teknologi QR Code dan dashboard interaktif.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="login.html" class="btn-primary px-8 py-4 rounded-lg font-semibold text-lg inline-flex items-center justify-center space-x-2 group">
+                            <span>Mulai Sekarang</span>
+                            <i class="fas fa-arrow-right transform group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                        <a href="#features" class="btn-secondary px-8 py-4 rounded-lg font-semibold text-lg inline-flex items-center justify-center space-x-2">
+                            <i class="fas fa-play"></i>
+                            <span>Lihat Demo</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div data-aos="fade-left" data-aos-duration="800" data-aos-delay="200" class="relative">
+                    <div class="glass rounded-2xl p-8 hover-lift">
+                        <div class="space-y-6">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-check text-white"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold">Absensi Real-time</h3>
+                                    <p class="text-gray-400 text-sm">Pantau kehadiran secara langsung</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-accent-500 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-chart-line text-white"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold">Laporan Otomatis</h3>
+                                    <p class="text-gray-400 text-sm">Generate laporan dengan mudah</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-yellow-500 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-users text-white"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold">Multi-Jurusan</h3>
+                                    <p class="text-gray-400 text-sm">RPL, TBSM, ATPH terintegrasi</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20 bg-primary-800/50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl lg:text-5xl font-bold mb-6 text-white">Fitur Unggulan</h2>
+                <p class="text-xl text-gray-300 max-w-2xl mx-auto">
+                    Sistem absensi digital dengan fitur lengkap untuk memudahkan manajemen OSIS SMK
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="feature-card glass rounded-xl p-8 hover-lift" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-16 h-16 bg-accent-500 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-qrcode text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-white">QR Code Scanner</h3>
+                    <p class="text-gray-300 leading-relaxed">
+                        Absensi cepat dan akurat menggunakan teknologi QR Code. Cukup scan dan kehadiran tercatat otomatis.
+                    </p>
+                </div>
+
+                <div class="feature-card glass rounded-xl p-8 hover-lift" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-16 h-16 bg-green-500 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-chart-bar text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-white">Dashboard Analytics</h3>
+                    <p class="text-gray-300 leading-relaxed">
+                        Visualisasi data kehadiran dengan chart interaktif untuk memantau tingkat kehadiran anggota.
+                    </p>
+                </div>
+
+                <div class="feature-card glass rounded-xl p-8 hover-lift" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-16 h-16 bg-yellow-500 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-calendar-alt text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-white">Manajemen Kegiatan</h3>
+                    <p class="text-gray-300 leading-relaxed">
+                        Kelola jadwal kegiatan OSIS dengan mudah. Timeline dan reminder otomatis untuk setiap event.
+                    </p>
+                </div>
+
+                <div class="feature-card glass rounded-xl p-8 hover-lift" data-aos="fade-up" data-aos-delay="400">
+                    <div class="w-16 h-16 bg-purple-500 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-file-alt text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-white">Laporan Otomatis</h3>
+                    <p class="text-gray-300 leading-relaxed">
+                        Generate laporan kehadiran otomatis dalam format PDF atau Excel dengan berbagai filter data.
+                    </p>
+                </div>
+
+                <div class="feature-card glass rounded-xl p-8 hover-lift" data-aos="fade-up" data-aos-delay="500">
+                    <div class="w-16 h-16 bg-red-500 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-mobile-alt text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-white">Mobile Friendly</h3>
+                    <p class="text-gray-300 leading-relaxed">
+                        Interface responsif yang dapat diakses dari smartphone, tablet, atau desktop dengan mudah.
+                    </p>
+                </div>
+
+                <div class="feature-card glass rounded-xl p-8 hover-lift" data-aos="fade-up" data-aos-delay="600">
+                    <div class="w-16 h-16 bg-blue-500 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-shield-alt text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-white">Keamanan Data</h3>
+                    <p class="text-gray-300 leading-relaxed">
+                        Sistem keamanan berlapis dengan enkripsi data dan role-based access control yang terpercaya.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-24 h-24 bg-accent-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-users text-white text-3xl"></i>
+                    </div>
+                    <div class="text-4xl font-bold text-white mb-2" data-count="250">0</div>
+                    <p class="text-gray-300">Anggota OSIS</p>
+                </div>
+                
+                <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-24 h-24 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-check-circle text-white text-3xl"></i>
+                    </div>
+                    <div class="text-4xl font-bold text-white mb-2" data-count="95">0</div>
+                    <p class="text-gray-300">Tingkat Kehadiran (%)</p>
+                </div>
+                
+                <div class="text-center" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-24 h-24 bg-yellow-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-calendar text-white text-3xl"></i>
+                    </div>
+                    <div class="text-4xl font-bold text-white mb-2" data-count="48">0</div>
+                    <p class="text-gray-300">Kegiatan Tercatat</p>
+                </div>
+                
+                <div class="text-center" data-aos="fade-up" data-aos-delay="400">
+                    <div class="w-24 h-24 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-graduation-cap text-white text-3xl"></i>
+                    </div>
+                    <div class="text-4xl font-bold text-white mb-2" data-count="3">0</div>
+                    <p class="text-gray-300">Jurusan Terintegrasi</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-r from-accent-600 to-accent-500">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl lg:text-5xl font-bold mb-6 text-white" data-aos="fade-up">
+                Siap Memulai Digitalisasi OSIS?
+            </h2>
+            <p class="text-xl text-accent-100 mb-8 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                Bergabunglah dengan revolusi digital dalam manajemen OSIS SMK. Tingkatkan efisiensi dan transparansi organisasi Anda.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center" data-aos="fade-up" data-aos-delay="200">
+                <a href="login.html" class="bg-white text-accent-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors inline-flex items-center justify-center space-x-2 group">
+                    <span>Daftar Sekarang</span>
+                    <i class="fas fa-arrow-right transform group-hover:translate-x-1 transition-transform"></i>
+                </a>
+                <a href="#contact" class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-accent-600 transition-colors">
+                    Hubungi Kami
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary-900 py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-10 h-10 bg-accent-500 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-users text-white text-xl"></i>
+                        </div>
+                        <span class="text-xl font-bold text-white">OSIS Digital</span>
+                    </div>
+                    <p class="text-gray-300 leading-relaxed">
+                        Sistem absensi digital terdepan untuk OSIS SMK di Indonesia.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-4">Fitur</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="#" class="hover:text-accent-500 transition-colors">QR Scanner</a></li>
+                        <li><a href="#" class="hover:text-accent-500 transition-colors">Dashboard</a></li>
+                        <li><a href="#" class="hover:text-accent-500 transition-colors">Laporan</a></li>
+                        <li><a href="#" class="hover:text-accent-500 transition-colors">Kegiatan</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-4">Support</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="#" class="hover:text-accent-500 transition-colors">Dokumentasi</a></li>
+                        <li><a href="#" class="hover:text-accent-500 transition-colors">Tutorial</a></li>
+                        <li><a href="#" class="hover:text-accent-500 transition-colors">FAQ</a></li>
+                        <li><a href="#" class="hover:text-accent-500 transition-colors">Kontak</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-4">Kontak</h4>
+                    <div class="space-y-2 text-gray-300">
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-envelope w-4"></i>
+                            <span>info@osisdigital.id</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-phone w-4"></i>
+                            <span>+62 812 3456 7890</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-map-marker-alt w-4"></i>
+                            <span>Jakarta, Indonesia</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 OSIS Digital. Semua hak dilindungi undang-undang.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
