@@ -1,0 +1,32 @@
+.interactive-bg {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(270deg, #ff8a00, #e52e71);
+    z-index: -2;
+    top: 0;
+    left: 0;
+}
+
+.ripple {
+    position: fixed;
+    border-radius: 50%;
+    transform: scale(0);
+    opacity: 0.6;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Pastikan konten utama tetap di atas background */
+.login-card,
+.register-card {
+    position: relative;
+    z-index: 1;
+}
+
+/* Tambahkan backdrop blur pada card */
+.login-card,
+.register-card {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
