@@ -5,12 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pendaftaran - Sistem Absensi OSIS</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
     <link rel="stylesheet" href="../assets/common.css">
-    <link rel="stylesheet" href="../assets/interactive-bg.css">
 </head>
-<body class="min-h-screen flex items-center justify-center p-4">
-    <div class="interactive-bg"></div>
+<body class="bg-slate-900 min-h-screen flex items-center justify-center p-4">
     <div class="register-card w-full max-w-2xl bg-slate-800 rounded-xl shadow-2xl border border-slate-700 p-8 opacity-0 transform translate-y-8">
         <div class="text-center mb-8">
             <h1 class="text-3xl font-bold text-white mb-2 typing-text">Pendaftaran Anggota OSIS</h1>
@@ -119,7 +116,7 @@
         </form>
     </div>
     
-    <script src="../assets/common.js"></script>
+    <script src="../assets/common.js"></link>
     <script src="../assets/interactive-bg.js"></script>
     <script>
         let currentStep = 1;

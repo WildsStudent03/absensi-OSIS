@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile - Sistem Absensi OSIS</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="assets/common.css">
+    <link rel="stylesheet" href="../assets/common.css">
 </head>
 <body class="bg-slate-900 min-h-screen">
     <!-- Header -->
@@ -227,7 +227,7 @@
         </div>
     </div>
     
-    <script src="assets/common.js"></script>
+    <script src="../assets/common.js"></script>
     <script>
         // Initialize page
         const userRole = localStorage.getItem('userRole');
@@ -241,24 +241,24 @@
             const nav = document.getElementById('sidebarNav');
             if (role === 'admin') {
                 nav.innerHTML = `
-                    <li><a href="dashboard-admin.html" class="nav-link">Dashboard</a></li>
-                    <li><a href="kelola-anggota.html" class="nav-link">Kelola Anggota</a></li>
-                    <li><a href="absensi.html" class="nav-link">Absensi</a></li>
-                    <li><a href="laporan.html" class="nav-link">Laporan</a></li>
-                    <li><a href="profile.html" class="nav-link active">Profile</a></li>
+                    <li><a href="dashboard-admin.php" class="nav-link">Dashboard</a></li>
+                    <li><a href="kelola-anggota.php" class="nav-link">Kelola Anggota</a></li>
+                    <li><a href="absensi.php" class="nav-link">Absensi</a></li>
+                    <li><a href="laporan.php" class="nav-link">Laporan</a></li>
+                    <li><a href="profile.php" class="nav-link active">Profile</a></li>
                 `;
             } else {
                 nav.innerHTML = `
-                    <li><a href="dashboard-member.html" class="nav-link">Dashboard</a></li>
-                    <li><a href="absensi.html" class="nav-link">Absensi</a></li>
-                    <li><a href="profile.html" class="nav-link active">Profile</a></li>
+                    <li><a href="dashboard-member.php" class="nav-link">Dashboard</a></li>
+                    <li><a href="absensi.php" class="nav-link">Absensi</a></li>
+                    <li><a href="profile.php" class="nav-link active">Profile</a></li>
                 `;
             }
         }
-        
+        //dummy data load
         function loadProfileData() {
-            const userName = localStorage.getItem('userName') || 'Anggota OSIS';
-            const userNis = localStorage.getItem('userNis') || '12345';
+            const userName = localStorage.getItem('userName') || 'Anggota';
+            const userNis = localStorage.getItem('userNis') || '12';
             
             document.getElementById('profileName').textContent = userName;
             document.getElementById('profileNis').textContent = userNis;

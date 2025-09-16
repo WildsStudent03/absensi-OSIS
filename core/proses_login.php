@@ -8,7 +8,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $errors = [];
     if (empty($user) || empty($password)) {
         $errors[] = 'Email/NIS dan password wajib diisi!';
-    } else {l
+    } else {
+        // Cek user by username (NIS) atau email
         $stmt = $conn->prepare('SELECT * FROM users WHERE username = ? OR email = ? LIMIT 1');
         $stmt->bind_param('ss', $user, $user);
         $stmt->execute();
@@ -36,6 +37,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     header('Location: ../index.php');
     exit;
 } else {
-    header('Location: index.php');
+    header('Location: ../index.php');
     exit;
 }

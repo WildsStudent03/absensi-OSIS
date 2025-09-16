@@ -59,9 +59,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Jika error, tampilkan pesan
     session_start();
     $_SESSION['register_errors'] = $errors;
-    header('Location: register.php');
+    header('Location: ../pages/register.php');
     exit;
 } else {
-    header('Location: register.php');
+    header('Location: ../pages/register.php');
     exit;
 }

@@ -2,6 +2,16 @@
 <?php
 include 'database/connect.php';
 session_start();
+
+if (isset($_SESSION['user'])) {
+    if ($_SESSION['user']['role'] === 'admin') {
+        header('Location: pages/dashboard-admin.php');
+    } else {
+        header('Location: pages/dashboard-member.php');
+    }
+    exit;
+}
+
 $errors = $_SESSION['login_errors'] ?? [];
 unset($_SESSION['login_errors']);
 ?>
@@ -14,12 +24,9 @@ unset($_SESSION['login_errors']);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Sistem Absensi OSIS</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
     <link rel="stylesheet" href="assets/common.css">
-    <link rel="stylesheet" href="assets/interactive-bg.css">
 </head>
-<body class="min-h-screen flex items-center justify-center p-4">
-    <div class="interactive-bg"></div>
+<body class="bg-slate-900 min-h-screen flex items-center justify-center p-4">
     <div class="login-card w-full max-w-md bg-slate-800 rounded-xl shadow-2xl border border-slate-700 p-8 opacity-0 transform translate-y-8">
         <div class="text-center mb-8">
             <h1 class="text-3xl font-bold text-white mb-2 typing-text">Login Sistem Absensi OSIS</h1>
@@ -55,8 +62,6 @@ unset($_SESSION['login_errors']);
             </p>
         </div>
     </div>
-    
     <script src="assets/common.js"></script>
-    <script src="assets/interactive-bg.js"></script>
 </body>
 </html>

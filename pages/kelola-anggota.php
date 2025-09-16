@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kelola Anggota - Sistem Absensi OSIS</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="assets/common.css">
+    <link rel="stylesheet" href="../assets/common.css">
 </head>
 <body class="bg-slate-900 min-h-screen">
     <!-- Header -->
@@ -24,11 +24,11 @@
         <aside class="w-64 bg-slate-800 min-h-screen border-r border-slate-700">
             <nav class="p-6">
                 <ul class="space-y-4">
-                    <li><a href="dashboard-admin.html" class="nav-link">Dashboard</a></li>
-                    <li><a href="kelola-anggota.html" class="nav-link active">Kelola Anggota</a></li>
-                    <li><a href="absensi.html" class="nav-link">Absensi</a></li>
-                    <li><a href="laporan.html" class="nav-link">Laporan</a></li>
-                    <li><a href="profile.html" class="nav-link">Profile</a></li>
+                    <li><a href="dashboard-admin.php" class="nav-link">Dashboard</a></li>
+                    <li><a href="kelola-anggota.php" class="nav-link active">Kelola Anggota</a></li>
+                    <li><a href="absensi.php" class="nav-link">Absensi</a></li>
+                    <li><a href="laporan.php" class="nav-link">Laporan</a></li>
+                    <li><a href="profile.php" class="nav-link">Profile</a></li>
                 </ul>
             </nav>
         </aside>

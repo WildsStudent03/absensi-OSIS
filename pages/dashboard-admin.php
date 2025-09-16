@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (!isset($_SESSION['user']) || $_SESSION['user']['role'] !== 'admin') {
+    header('Location: ../index.php');
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="id" class="dark">
 <head>
@@ -5,7 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Admin - Sistem Absensi OSIS</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="assets/common.css">
+    <link rel="stylesheet" href="../assets/common.css">
 </head>
 <body class="bg-slate-900 min-h-screen">
     <!-- Header -->
@@ -14,7 +21,7 @@
             <h1 class="text-xl font-bold text-white">Dashboard Admin OSIS</h1>
             <div class="flex items-center space-x-4">
                 <span class="text-slate-300" id="adminName">Admin OSIS</span>
-                <button onclick="logout()" class="text-red-400 hover:text-red-300 transition-colors">Logout</button>
+                <a href="../core/logout.php" class="text-red-400 hover:text-red-300 transition-colors">Logout</a>
             </div>
         </div>
     </header>
@@ -24,11 +31,11 @@
         <aside class="w-64 bg-slate-800 min-h-screen border-r border-slate-700">
             <nav class="p-6">
                 <ul class="space-y-4">
-                    <li><a href="dashboard-admin.html" class="nav-link active">Dashboard</a></li>
-                    <li><a href="kelola-anggota.html" class="nav-link">Kelola Anggota</a></li>
-                    <li><a href="absensi.html" class="nav-link">Absensi</a></li>
-                    <li><a href="laporan.html" class="nav-link">Laporan</a></li>
-                    <li><a href="profile.html" class="nav-link">Profile</a></li>
+                    <li><a href="dashboard-admin.php" class="nav-link active">Dashboard</a></li>
+                    <li><a href="kelola-anggota.php" class="nav-link">Kelola Anggota</a></li>
+                    <li><a href="absensi.php" class="nav-link">Absensi</a></li>
+                    <li><a href="laporan.php" class="nav-link">Laporan</a></li>
+                    <li><a href="profile.php" class="nav-link">Profile</a></li>
                 </ul>
             </nav>
         </aside>
@@ -109,7 +116,7 @@
         </main>
     </div>
     
-    <script src="assets/common.js"></script>
+    <script src="../assets/common.js"></script>
     <script>
         // Check admin access
         checkAuth('admin');

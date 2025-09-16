@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Absensi - Sistem Absensi OSIS</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="assets/common.css">
+    <link rel="stylesheet" href="../assets/common.css">
 </head>
 <body class="bg-slate-900 min-h-screen">
     <!-- Header -->
@@ -32,7 +32,7 @@
         <!-- Main Content -->
         <main class="flex-1 p-6">
             <div class="max-w-4xl mx-auto">
-                <!-- Date Info -->
+                <!-- Current Date and Time -->
                 <div class="bg-slate-800 rounded-xl border border-slate-700 p-6 mb-6 glow-card">
                     <div class="text-center">
                         <h2 class="text-2xl font-bold text-white mb-2" id="currentDate"></h2>
@@ -190,17 +190,17 @@
             const nav = document.getElementById('sidebarNav');
             if (role === 'admin') {
                 nav.innerHTML = `
-                    <li><a href="dashboard-admin.html" class="nav-link">Dashboard</a></li>
-                    <li><a href="kelola-anggota.html" class="nav-link">Kelola Anggota</a></li>
-                    <li><a href="absensi.html" class="nav-link active">Absensi</a></li>
-                    <li><a href="laporan.html" class="nav-link">Laporan</a></li>
-                    <li><a href="profile.html" class="nav-link">Profile</a></li>
+                    <li><a href="dashboard-admin.php" class="nav-link">Dashboard</a></li>
+                    <li><a href="kelola-anggota.php" class="nav-link">Kelola Anggota</a></li>
+                    <li><a href="absensi.php" class="nav-link active">Absensi</a></li>
+                    <li><a href="laporan.php" class="nav-link">Laporan</a></li>
+                    <li><a href="profile.php" class="nav-link">Profile</a></li>
                 `;
             } else {
                 nav.innerHTML = `
-                    <li><a href="dashboard-member.html" class="nav-link">Dashboard</a></li>
-                    <li><a href="absensi.html" class="nav-link active">Absensi</a></li>
-                    <li><a href="profile.html" class="nav-link">Profile</a></li>
+                    <li><a href="dashboard-member.php" class="nav-link">Dashboard</a></li>
+                    <li><a href="absensi.php" class="nav-link active">Absensi</a></li>
+                    <li><a href="profile.php" class="nav-link">Profile</a></li>
                 `;
             }
         }

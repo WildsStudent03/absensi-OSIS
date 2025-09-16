@@ -1,52 +1,91 @@
 // Common JavaScript functions for OSIS Attendance System
 
-// Authentication and role management
-function checkAuth(requiredRole = null) {
-  const userRole = localStorage.getItem("userRole")
-  const userName = localStorage.getItem("userName")
+// Form validation
+function validateLoginForm() {
+  const emailNis = document.getElementById("emailNis")?.value.trim();
+  const password = document.getElementById("password")?.value;
 
-  if (!userRole || !userName) {
-    window.location.href = "index.html"
-    return false
+  if (!emailNis || !password) {
+    showNotification("Email/NIS dan Password wajib diisi!", "error");
+    return false;
   }
-
-  if (requiredRole && userRole !== requiredRole) {
-    alert("Akses ditolak! Anda tidak memiliki izin untuk halaman ini.")
-    if (userRole === "admin") {
-      window.location.href = "dashboard-admin.html"
-    } else {
-      window.location.href = "dashboard-member.html"
-    }
-    return false
-  }
-
-  return true
+  return true;
 }
 
-function logout() {
-  if (confirm("Yakin ingin logout?")) {
-    localStorage.clear()
-    window.location.href = "index.html"
+function validateRegisterStep1() {
+  const username = document.getElementById("nis")?.value.trim();
+  const nama = document.getElementById("nama")?.value.trim();
+  const email = document.getElementById("email")?.value.trim();
+  const password = document.getElementById("regPassword")?.value;
+
+  if (!username || !nama || !email || !password) {
+    showNotification("Semua field wajib diisi!", "error");
+    return false;
   }
+
+  if (!validateNIS(username)) {
+    showNotification("NIS tidak valid! Minimal 4 digit angka.", "error");
+    return false;
+  }
+
+  if (!validateEmail(email)) {
+    showNotification("Format email tidak valid!", "error");
+    return false;
+  }
+
+  if (!validatePassword(password)) {
+    showNotification("Password minimal 6 karakter!", "error");
+    return false;
+  }
+
+  return true;
 }
+
+function validateRegisterStep2() {
+  const jurusan = document.getElementById("jurusan")?.value;
+  const jabatan = document.getElementById("jabatan")?.value.trim();
+  const role = document.getElementById("role")?.value || "anggota";
+  const adminCode = document.getElementById("adminCode")?.value;
+
+  if (!jurusan || !jabatan) {
+    showNotification("Jurusan dan Jabatan wajib diisi!", "error");
+    return false;
+  }
+
+  if (role === "admin" && (!adminCode || adminCode.trim() === "")) {
+    showNotification("Kode admin wajib diisi!", "error");
+    return false;
+  }
+
+  return true;
+}
+
 
 // Notification system
 function showNotification(message, type = "info") {
   // Remove existing notifications
-  const existingNotifications = document.querySelectorAll(".notification")
-  existingNotifications.forEach((notification) => notification.remove())
+  const existingNotifications = document.querySelectorAll(".notification");
+  existingNotifications.forEach((notification) => notification.remove());
 
-  const notification = document.createElement("div")
-  notification.className = `notification ${type}`
-  notification.textContent = message
+  const notification = document.createElement("div");
+  notification.className = `fixed top-4 right-4 px-6 py-3 rounded-lg shadow-lg z-50 transform transition-all duration-300 ${type === "error" ? "bg-red-500" : "bg-green-500"
+    } text-white notification`;
+  notification.textContent = message;
 
-  document.body.appendChild(notification)
+  // Add animation class for slide in
+  notification.style.transform = "translateX(100%)";
+  document.body.appendChild(notification);
+
+  // Animate in
+  setTimeout(() => {
+    notification.style.transform = "translateX(0)";
+  }, 100);
 
   // Auto remove after 3 seconds
   setTimeout(() => {
-    notification.style.animation = "slideOutRight 0.3s ease-out forwards"
-    setTimeout(() => notification.remove(), 300)
-  }, 3000)
+    notification.style.transform = "translateX(100%)";
+    setTimeout(() => notification.remove(), 300);
+  }, 3000);
 }
 
 // Page transition effects
@@ -81,19 +120,22 @@ function validatePassword(password) {
   return password && password.length >= 6
 }
 
-// Local storage helpers
-function saveUserData(userData) {
-  Object.keys(userData).forEach((key) => {
-    localStorage.setItem(key, userData[key])
-  })
+// Form steps utils
+function nextFormStep(currentStep, nextStep, stepIndicators) {
+  if (currentStep && nextStep && stepIndicators) {
+    currentStep.classList.add("hidden");
+    nextStep.classList.remove("hidden");
+    stepIndicators[0].classList.remove("active");
+    stepIndicators[1].classList.add("active");
+  }
 }
 
-function getUserData() {
-  return {
-    userRole: localStorage.getItem("userRole"),
-    userName: localStorage.getItem("userName"),
-    userNis: localStorage.getItem("userNis"),
-    userEmail: localStorage.getItem("userEmail"),
+function prevFormStep(currentStep, prevStep, stepIndicators) {
+  if (currentStep && prevStep && stepIndicators) {
+    currentStep.classList.add("hidden");
+    prevStep.classList.remove("hidden");
+    stepIndicators[1].classList.remove("active");
+    stepIndicators[0].classList.add("active");
   }
 }
 
@@ -307,12 +349,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
   })
-})
-
-// Error handling
-window.addEventListener("error", (e) => {
-  console.error("Application error:", e.error)
-  showNotification("Terjadi kesalahan aplikasi", "error")
 })
 
 // Service worker registration (for offline capability)
