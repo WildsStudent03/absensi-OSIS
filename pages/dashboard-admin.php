@@ -98,19 +98,19 @@ if (!isset($_SESSION['user']) || $_SESSION['user']['role'] !== 'admin') {
                 <div class="action-card">
                     <h3 class="text-lg font-semibold text-white mb-4">Kelola Anggota</h3>
                     <p class="text-slate-400 mb-4">Tambah, edit, atau hapus data anggota OSIS</p>
-                    <a href="kelola-anggota.html" class="btn-primary">Kelola Anggota</a>
+                    <a href="kelola-anggota.php" class="btn-primary">Kelola Anggota</a>
                 </div>
                 
                 <div class="action-card">
                     <h3 class="text-lg font-semibold text-white mb-4">Absensi</h3>
                     <p class="text-slate-400 mb-4">Kelola absensi harian anggota OSIS</p>
-                    <a href="absensi.html" class="btn-primary">Buka Absensi</a>
+                    <a href="absensi.php" class="btn-primary">Buka Absensi</a>
                 </div>
                 
                 <div class="action-card">
                     <h3 class="text-lg font-semibold text-white mb-4">Laporan Mingguan</h3>
                     <p class="text-slate-400 mb-4">Lihat rekap absensi mingguan dan bulanan</p>
-                    <a href="laporan.html" class="btn-primary">Lihat Laporan</a>
+                    <a href="laporan.php" class="btn-primary">Lihat Laporan</a>
                 </div>
             </div>
         </main>
